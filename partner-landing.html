@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prosto Camps — Партнерская программа</title>
+  <meta name="description" content="Приводи участников в кемпы Prosto Camps и зарабатывай на каждом бронировании." />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700;800&display=swap");
+
+    :root {
+      --bg: #d2cfca;
+      --surface: #ffffff;
+      --text: #0f0f10;
+      --muted: #585858;
+      --accent: #ef62b4;
+      --accent-dark: #db4b9f;
+      --line: #d9d3cb;
+      --dark-pill: #595959;
+      --shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1240px, 92vw);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid #cdc6bc;
+      background: #f7f2ea;
+      color: var(--accent-dark);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-family: "Unbounded", "Manrope", sans-serif;
+      font-size: clamp(32px, 5.4vw, 68px);
+      line-height: 1.02;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      text-transform: none;
+    }
+
+    h2 {
+      font-family: "Unbounded", "Manrope", sans-serif;
+      font-size: clamp(24px, 3.6vw, 44px);
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: clamp(15px, 1.5vw, 18px);
+    }
+
+    .hero {
+      padding-top: 26px;
+    }
+
+    .hero-shell {
+      position: relative;
+      min-height: 790px;
+      border-radius: 34px;
+      overflow: hidden;
+      padding: 22px 36px 52px;
+      background:
+        linear-gradient(110deg, rgba(16, 16, 16, 0.58) 0%, rgba(20, 20, 20, 0.28) 45%, rgba(22, 22, 22, 0.45) 100%),
+        url("https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=1900&q=80") center/cover no-repeat;
+      box-shadow: var(--shadow);
+      color: #f7f7f7;
+    }
+
+    .top-nav {
+      width: 100%;
+      background: var(--dark-pill);
+      border-radius: 999px;
+      min-height: 84px;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: "Unbounded", "Manrope", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    .menu a {
+      color: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .menu .menu-cta {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-content {
+      margin-top: 90px;
+      width: min(700px, 100%);
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      min-height: 48px;
+      padding: 10px 22px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    .hero-actions .btn {
+      min-height: 72px;
+      padding: 14px 36px;
+      font-size: 21px;
+      font-family: "Unbounded", "Manrope", sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #171717;
+      box-shadow: 0 8px 24px rgba(235, 91, 172, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero-actions .btn-secondary {
+      background: transparent;
+      color: #f4f4f4;
+      border: 3px solid rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-kpis {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .kpi {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 18px;
+      padding: 16px;
+      color: #1a1a1a;
+      backdrop-filter: blur(6px);
+    }
+
+    .kpi b {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      font-family: "Unbounded", "Manrope", sans-serif;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .calc {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .form-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 15px;
+      outline: none;
+      font-family: "Manrope", sans-serif;
+    }
+
+    input:focus, select:focus {
+      border-color: #f3a0c5;
+    }
+
+    .result {
+      background: linear-gradient(145deg, #fff6fb, #ffffff);
+      border: 1px solid #f4d4e4;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .result .sum {
+      font-size: clamp(26px, 3.6vw, 40px);
+      font-weight: 800;
+      margin-top: 8px;
+      letter-spacing: -0.01em;
+      font-family: "Unbounded", "Manrope", sans-serif;
+    }
+
+    .result small {
+      color: var(--muted);
+      display: block;
+      margin-top: 8px;
+    }
+
+    .ref-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .qr-wrap {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .steps {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      font-size: 15px;
+    }
+
+    .step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      background: #ffe6f2;
+      color: var(--accent-dark);
+    }
+
+    .cta-box {
+      margin-top: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    footer {
+      padding: 30px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-shell {
+        padding: 18px 20px 40px;
+      }
+
+      .top-nav {
+        border-radius: 24px;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        gap: 16px;
+      }
+
+      .menu a {
+        font-size: 16px;
+      }
+
+      .hero-content {
+        margin-top: 52px;
+      }
+
+      .hero-grid, .calc {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .section {
+        padding: 48px 0;
+      }
+
+      h1 {
+        font-size: clamp(30px, 10vw, 42px);
+      }
+
+      h2 {
+        font-size: clamp(22px, 7vw, 32px);
+      }
+
+      .hero-shell {
+        min-height: 700px;
+      }
+
+      .btn {
+        min-height: 46px;
+      }
+
+      .hero-actions .btn {
+        min-height: 58px;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      .hero-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .qr-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero section">
+      <div class="container">
+        <div class="hero-shell">
+          <nav class="top-nav">
+            <div class="brand">Prosto Camps</div>
+            <div class="menu">
+              <a href="#model">О проекте</a>
+              <a href="#calc">Доход</a>
+              <a href="#join">Реф. ссылка</a>
+              <a href="#join" class="menu-cta">Связаться →</a>
+            </div>
+          </nav>
+          <div class="hero-content">
+            <span class="badge">Партнерская программа Prosto Camps</span>
+            <h1>Приводи людей в кемпы<br />и зарабатывай на каждом бронировании</h1>
+            <p class="muted" style="color: rgba(255,255,255,0.88); max-width: 640px;">
+              Ты делишься своей реферальной ссылкой, а мы начисляем тебе процент
+              с оплат участника. Чем больше целевых заявок — тем выше твой доход.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#join">Стать партнером</a>
+              <a class="btn btn-secondary" href="#calc">Посчитать доход</a>
+            </div>
+            <div class="hero-kpis">
+              <div class="kpi">
+                <b>до 15%</b>
+                <span>с подтвержденной оплаты</span>
+              </div>
+              <div class="kpi">
+                <b>7 дней</b>
+                <span>выплата после заезда</span>
+              </div>
+              <div class="kpi">
+                <b>∞</b>
+                <span>повторные брони — твои</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="container">
+        <span class="badge">Как это работает</span>
+        <h2>Прозрачная модель без сложной интеграции</h2>
+        <p class="muted">
+          На старте можно запустить партнерку даже на Tilda + Google Sheets:
+          уникальная ссылка, UTM-метки, ручная модерация и еженедельные выплаты.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>1 уровень</h3>
+            <p>Ты получаешь фиксированный % за каждого участника, который пришел по твоей ссылке и оплатил тур.</p>
+          </article>
+          <article class="card">
+            <h3>2 уровень (опционально)</h3>
+            <p>Если твой партнер привел другого партнера — ты получаешь доп.% с его продаж как бонус сети.</p>
+          </article>
+          <article class="card">
+            <h3>Retention-бонус</h3>
+            <p>Повторная покупка этого же участника в течение 12 месяцев тоже учитывается за тобой.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calc">
+      <div class="container">
+        <span class="badge">Калькулятор дохода</span>
+        <h2>Покажи партнеру, сколько он реально может заработать</h2>
+        <div class="calc">
+          <form class="form-box" onsubmit="return false;">
+            <div class="field">
+              <label for="tourPrice">Средний чек тура (₽)</label>
+              <input id="tourPrice" type="number" value="120000" min="10000" step="1000" />
+            </div>
+            <div class="field">
+              <label for="buyers">Сколько оплат в месяц</label>
+              <input id="buyers" type="number" value="5" min="1" step="1" />
+            </div>
+            <div class="field">
+              <label for="percent">Процент партнера (%)</label>
+              <select id="percent">
+                <option value="8">8%</option>
+                <option value="10" selected>10%</option>
+                <option value="12">12%</option>
+                <option value="15">15%</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="retention">Повторные покупки в год (%)</label>
+              <input id="retention" type="number" value="20" min="0" max="100" step="5" />
+            </div>
+            <button class="btn btn-primary" id="calcBtn">Посчитать</button>
+          </form>
+
+          <div class="result">
+            <p class="muted">Ожидаемый доход партнера в месяц</p>
+            <div class="sum" id="monthlyIncome">60 000 ₽</div>
+            <p class="muted" style="margin-top:12px;">Потенциальный пассив с повторных броней (в месяц, усредненно)</p>
+            <div class="sum" id="retentionIncome">12 000 ₽</div>
+            <small id="calcHint">Расчет ориентировочный, финальная выплата зависит от фактических оплат и возвратов.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="join">
+      <div class="container">
+        <span class="badge">Твоя ссылка и QR</span>
+        <h2>Сгенерируй реферальную ссылку за 10 секунд</h2>
+        <p class="muted">Отправляй ссылку в Telegram/Instagram или показывай QR на офлайн-встречах.</p>
+
+        <div class="form-box" style="margin-top:16px;">
+          <div class="field">
+            <label for="partnerCode">Твой код (ник / имя)</label>
+            <input id="partnerCode" type="text" value="anna.fit" />
+          </div>
+          <div class="ref-grid">
+            <input id="refLink" type="text" value="https://prostocamps.ru/?ref=anna.fit&utm_source=partner&utm_medium=referral&utm_campaign=affiliate" readonly />
+            <button class="btn btn-secondary" id="copyBtn">Копировать</button>
+          </div>
+          <div class="qr-wrap">
+            <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fprostocamps.ru%2F%3Fref%3Danna.fit" alt="QR код реферальной ссылки" style="width:180px;height:180px;border:1px solid var(--line);" />
+            <div>
+              <p><b>Как учитывать заявки без платежки:</b></p>
+              <p class="muted">Форма заявки сохраняет `ref` и `utm` в Tilda CRM/Google Sheets. Менеджер подтверждает оплату вручную, и по подтвержденным бронированиям считается выплата партнеру.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step"><b>1</b><br/>Партнер оставляет заявку и получает код.</div>
+          <div class="step"><b>2</b><br/>Делится ссылкой/QR в соцсетях и чатах.</div>
+          <div class="step"><b>3</b><br/>Лид оставляет заявку на тур с привязкой `ref`.</div>
+          <div class="step"><b>4</b><br/>После оплаты начисляется вознаграждение.</div>
+        </div>
+
+        <div class="cta-box">
+          <div>
+            <h3 style="margin-bottom:6px;">Хочешь стать партнером Prosto Camps?</h3>
+            <p class="muted">Оставь контакт — пришлем условия, сетку % и примеры заработка по направлениям.</p>
+          </div>
+          <a class="btn btn-primary" href="#">Оставить заявку</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Prosto Camps · Партнерская страница MVP
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const formatRub = (n) => new Intl.NumberFormat("ru-RU").format(Math.round(n)) + " ₽";
+
+    function recalc() {
+      const price = Number($("tourPrice").value) || 0;
+      const buyers = Number($("buyers").value) || 0;
+      const percent = Number($("percent").value) || 0;
+      const retention = Number($("retention").value) || 0;
+
+      const monthlyIncome = price * buyers * (percent / 100);
+      const retentionIncome = (price * buyers * (retention / 100) * (percent / 100)) / 12;
+
+      $("monthlyIncome").textContent = formatRub(monthlyIncome);
+      $("retentionIncome").textContent = formatRub(retentionIncome);
+    }
+
+    function updateRef() {
+      const raw = $("partnerCode").value.trim().toLowerCase();
+      const code = raw
+        .replace(/\s+/g, ".")
+        .replace(/[^a-z0-9._-]/g, "")
+        .slice(0, 32) || "partner";
+
+      const link = `https://prostocamps.ru/?ref=${encodeURIComponent(code)}&utm_source=partner&utm_medium=referral&utm_campaign=affiliate`;
+      $("refLink").value = link;
+      $("qrImage").src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(link)}`;
+    }
+
+    $("calcBtn").addEventListener("click", recalc);
+    $("tourPrice").addEventListener("input", recalc);
+    $("buyers").addEventListener("input", recalc);
+    $("percent").addEventListener("change", recalc);
+    $("retention").addEventListener("input", recalc);
+    $("partnerCode").addEventListener("input", updateRef);
+
+    $("copyBtn").addEventListener("click", async () => {
+      const text = $("refLink").value;
+      try {
+        await navigator.clipboard.writeText(text);
+        $("copyBtn").textContent = "Скопировано";
+      } catch (_) {
+        $("refLink").select();
+        document.execCommand("copy");
+        $("copyBtn").textContent = "Скопировано";
+      }
+      setTimeout(() => {
+        $("copyBtn").textContent = "Копировать";
+      }, 1200);
+    });
+
+    recalc();
+    updateRef();
+  </script>
+</body>
+</html>
